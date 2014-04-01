@@ -1,0 +1,5 @@
+_site/
+
+#Because Wobbo uses vim and stuff
+*.swp
+*.swo
