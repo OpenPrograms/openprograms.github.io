@@ -190,7 +190,7 @@ local html=[[
 for _,dat in pairs(programs) do
 	local name=dat[1]
 	if #dat[2]>0 then
-		html=html.."\t\t<br><a href=\""..dat[2].."\"><div id=\"programs\"><div id=\"title\">"..name.."</div></a>"
+		html=html.."\t\t<br><div id=\"programs\"><a href=\""..dat[2].."\"><div id=\"title\">"..name.."</div></a>"
 	else
 		html=html.."\t\t<br><div id=\"programs\"><div id=\"title\">"..name.."</div>"
 	end
