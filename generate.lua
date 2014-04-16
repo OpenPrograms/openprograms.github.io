@@ -47,18 +47,6 @@ local programs={
 			"https://github.com/OpenPrograms/Lua-Logging/tree/master/lib",
 		},
 	},
-	{"Vexatos' programs","",
-		{"OCGithub",
-			"Not functional",
-			"https://github.com/OpenPrograms/OCGithub/blob/master/src/launcher.lua"
-		},
-	},
-	{"JoshTheEnder's programs","https://github.com/OpenPrograms/JoshTheEnder-Programs",
-		{"DNS Serv",
-			"Not functional",
-			"https://github.com/OpenPrograms/JoshTheEnder-Programs/blob/master/DNS_Serv.lua",
-		},
-	},
 	{"Sangar's programs","https://github.com/OpenPrograms/Sangar-Programs",
 		{"holo flow",
 			"Creates a terrain like hologram",
@@ -125,10 +113,22 @@ local programs={
 			"/blob/master/esolangs/superstack.lua"
 		},
 	},
-	{"Miscellaneous Programs","https://github.com/OpenPrograms/MiscPrograms",
+	{"Miscellaneous programs","https://github.com/OpenPrograms/MiscPrograms",
 		{"example",
-			"Hello world",
+			"Hello world by Vexatos",
 			"https://github.com/OpenPrograms/MiscPrograms/blob/master/Vexatos/example.lua",
+		},
+	},
+	{"Vexatos' programs","",
+		{"OCGithub",
+			"Not functional",
+			"https://github.com/OpenPrograms/OCGithub/blob/master/src/launcher.lua"
+		},
+	},
+	{"JoshTheEnder's programs","https://github.com/OpenPrograms/JoshTheEnder-Programs",
+		{"DNS Serv",
+			"Not functional",
+			"https://github.com/OpenPrograms/JoshTheEnder-Programs/blob/master/DNS_Serv.lua",
 		},
 	},
 }
@@ -157,14 +157,23 @@ h2 {
 	border-radius:5px;
 	font-size:130%;
 	text-align:center;
-	padding-left:20px;
-	padding-bottom:10px;
-	padding-top:10px;
+	padding:10px;
+}
+#title {
+	color:#101010;
+	background-color:#E0E0E0;
+	border-radius:5px;
+	text-align:center;
+	padding:5px;
 }
 h5 {
 	color:#F0F0F0;
 }
-table, td {
+table {
+	border:0px;
+	padding:10px;
+}
+td {
 	border:0px;
 }
 ]]
@@ -173,8 +182,7 @@ local html=[[
 	<head>
 		<title>OpenPrograms</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="icon" href="https://raw.githubusercontent.com/OpenPrograms/openprograms.github.io/master/favicon.ico">
-		<link rel="shortcut icon" href="https://raw.githubusercontent.com/OpenPrograms/openprograms.github.io/master/favicon.ico">
+		<link rel="icon" type="image/ico" href="favicon.ico">
 	</head>
 	<body>
 		<br><center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center><br>
@@ -182,11 +190,11 @@ local html=[[
 for _,dat in pairs(programs) do
 	local name=dat[1]
 	if #dat[2]>0 then
-		html=html.."\t\t<br><a href=\""..dat[2].."\"><div id=\"programs\">"..name.."</a>"
+		html=html.."\t\t<br><a href=\""..dat[2].."\"><div id=\"programs\"><div id=\"title\">"..name.."</div></a>"
 	else
-		html=html.."\t\t<br><div id=\"programs\">"..name
+		html=html.."\t\t<br><div id=\"programs\"><div id=\"title\">"..name.."</div>"
 	end
-	html=html.."<br>\n\t\t<table>\n"
+	html=html.."\n\t\t<table>\n"
 	for ind=3,#dat do
 		local pdat=dat[ind]
 		if pname~=1 then
@@ -199,8 +207,14 @@ for _,dat in pairs(programs) do
 	end
 	html=html.."\t\t</table></div>\n"
 end
-local date=os.date("*t")
-html=html.."<a href=\"https://github.com/OpenPrograms/openprograms.github.io/blob/master/generate.lua\"><h5>Generated on "..date.month.."/"..date.day.." at "..date.hour..":"..("0"):rep(2-#tostring(date.min))..date.min.."</h5></a>\n\t</body>\n</html>"
+local date=os.date("!*t")
+html=html..[[
+		<a href=\"https://github.com/OpenPrograms/openprograms.github.io/blob/master/generate.lua\">
+			<h5>Generated on ]]..date.month.."/"..date.day.." at "..date.hour..":"..("0"):rep(2-#tostring(date.min))..date.min..[[ UTC</h5>
+		</a>
+	</body>
+</html>
+]]
 local file=assert(io.open("index.html","w"))
 file:write(html)
 file:close()

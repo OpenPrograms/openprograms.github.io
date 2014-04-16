@@ -22,13 +22,22 @@ h2 {
 	border-radius:5px;
 	font-size:130%;
 	text-align:center;
-	padding-left:20px;
-	padding-bottom:10px;
-	padding-top:10px;
+	padding:10px;
+}
+#title {
+	color:#101010;
+	background-color:#E0E0E0;
+	border-radius:5px;
+	text-align:center;
+	padding:5px;
 }
 h5 {
 	color:#F0F0F0;
 }
-table, td {
+table {
+	border:0px;
+	padding:10px;
+}
+td {
 	border:0px;
 }
