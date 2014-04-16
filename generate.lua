@@ -20,9 +20,6 @@ local programs={
 			"/blob/master/ks.lua",
 		},
 	},
-	{"Symmetryc's programs","https://github.com/OpenPrograms/Symmetryc-Programs",
-		-- Y U NO?
-	},
 	{"Gopher's programs","https://github.com/OpenPrograms/Gopher-Programs",
 		{"GML",
 			"Useful GUI API",
@@ -131,6 +128,9 @@ local programs={
 			"https://github.com/OpenPrograms/JoshTheEnder-Programs/blob/master/DNS_Serv.lua",
 		},
 	},
+	{"Symmetryc's programs","https://github.com/OpenPrograms/Symmetryc-Programs",
+		"Y U NO?"
+	},
 }
 local css=[[
 body {
@@ -178,8 +178,7 @@ td {
 }
 ]]
 local html=[[
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html>
 	<head>
 		<title>OpenPrograms</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -198,12 +197,14 @@ for _,dat in pairs(programs) do
 	html=html.."\n\t\t<table>\n"
 	for ind=3,#dat do
 		local pdat=dat[ind]
-		if pname~=1 then
+		if type(pdat)=="table" then
 			local url=pdat[3]
 			if url:sub(1,1)=="/" then
 				url=dat[2]..url
 			end
 			html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[2].."</td></tr>\n"
+		else
+			html=html.."\t\t\t"..pdat.."\n"
 		end
 	end
 	html=html.."\t\t</table></div>\n"
