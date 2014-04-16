@@ -1,137 +1,20 @@
 --[[
 	a HTML/CSS generator, designed to make updating the site easier
 --]]
-local programs={
-	{"Kenny's programs","https://github.com/OpenPrograms/Kenny-Programs",
-		{"CompVeiwer",
-			"GUI component veiwer",
-			"/blob/master/CompViewer/CompViewer.lua",
-		},
-		{"LC Control",
-			"GUI stargate controller",
-			"/blob/master/LC_Control/stargate.lua",
-		},
-		{"Adventure",
-			"CC adventure ported to OC",
-			"/blob/master/adventure.lua",
-		},
-		{"KS",
-			"Easy to use term API",
-			"/blob/master/ks.lua",
-		},
-	},
-	{"Gopher's programs","https://github.com/OpenPrograms/Gopher-Programs",
-		{"GML",
-			"Useful GUI API",
-			"/tree/master/gml"
-		},
-		{"gitrepo",
-			"Github downloader",
-			"/blob/master/gitrepo.lua",
-		},
-	},
-	{"Wobbo's programs","https://github.com/OpenPrograms/Wobbo-Programs",
-		{"energyd",
-			"Deamon for managing the energy levels",
-			"/blob/master/energyd/energyd.lua",
-		},
-		{"getopt",
-			"Command line argument parser",
-			"/blob/master/getopt/getopt.lua",
-		},
-		{"logging",
-			"Port of Lua-Logging",
-			"https://github.com/OpenPrograms/Lua-Logging/tree/master/lib",
-		},
-	},
-	{"Sangar's programs","https://github.com/OpenPrograms/Sangar-Programs",
-		{"holo flow",
-			"Creates a terrain like hologram",
-			"/blob/master/holo-flow.lua"
-		},
-		{"holo text",
-			"Makes scrolling text above terrain",
-			"/blob/master/holo-text.lua",
-		},
-		{"noise",
-			"Perlin noise and more API",
-			"/blob/master/noise.lua",
-		},
-	},
-	{"Dustbin's programs","",
-		{"LibCompress",
-			"Compression API",
-			"https://github.com/OpenPrograms/LibCompress/blob/master/LibCompress.lua"
-		},
-	},
-	{"PixelToast's programs","https://github.com/OpenPrograms/Pixel-Programs",
-		{"TCPNet",
-			"Cross-server communication",
-			"https://github.com/P-T-/TCPNet",
-		},
-		{"base64",
-			"Fast b64 converter",
-			"/blob/master/b64.lua",
-		},
-		{"holo menger",
-			"Hologram menger sponge",
-			"/blob/master/hologram/menger.lua",
-		},
-		{"holo sphere",
-			"Hologram sphere",
-			"/blob/master/hologram/sphere.lua",
-		},
-		{"holo text",
-			"Hologram dynamic text",
-			"/blob/master/hologram/sphere.lua",
-		},
-		{"agony",
-			"Agony esolang",
-			"/blob/master/esolangs/agony.lua",
-		},
-		{"barely",
-			"Barely esolang",
-			"/blob/master/esolangs/barely.lua",
-		},
-		{"befunge",
-			"Befunge esolang",
-			"/blob/master/esolangs/begunge.lua",
-		},
-		{"brainfuck",
-			"Brainfuck esolang",
-			"/blob/master/esolangs/brainfuck.lua",
-		},
-		{"malbolge",
-			"Malbolge esolang",
-			"/blob/master/esolangs/malbolge.lua"
-		},
-		{"superstack",
-			"SuperStack! esolang",
-			"/blob/master/esolangs/superstack.lua"
-		},
-	},
-	{"Miscellaneous programs","https://github.com/OpenPrograms/MiscPrograms",
-		{"example",
-			"Hello world by Vexatos",
-			"https://github.com/OpenPrograms/MiscPrograms/blob/master/Vexatos/example.lua",
-		},
-	},
-	{"Vexatos' programs","",
-		{"OCGithub",
-			"Not functional",
-			"https://github.com/OpenPrograms/OCGithub/blob/master/src/launcher.lua"
-		},
-	},
-	{"JoshTheEnder's programs","https://github.com/OpenPrograms/JoshTheEnder-Programs",
-		{"DNS Serv",
-			"Not functional",
-			"https://github.com/OpenPrograms/JoshTheEnder-Programs/blob/master/DNS_Serv.lua",
-		},
-	},
-	{"Symmetryc's programs","https://github.com/OpenPrograms/Symmetryc-Programs",
-		"Y U NO?"
-	},
-}
+local file=io.open("programs.yaml","r")
+local yaml=file:read("*a")
+file:close()
+-- crappy parsing
+yaml=yaml:gsub("^#[^\r\n]+","")
+:gsub("\r?\n([^\r\n\t]+):\r?\n","\n{\"%1\",\n")
+:gsub("\r?\n\t([^\r\n\t]+[^\r\n\t:])\r?\n","\n\t\"%1\",\n")
+:gsub("\r?\n{","\n},\n{")
+:gsub("\r?\n\t([^\r\n\t]+):\r?\n","\n\t{\"%1\",\n")
+local n=1
+while n>0 do
+	yaml,n=yaml:gsub("\r?\n\t\t([^\r\n\t{\"][^\r\n\t]+)\r?\n","\n\t\t\"%1\",\n")
+end
+local programs=loadstring("return {"..yaml:gsub(",\r?\n}","\n\t}\n}"):gsub("(\r?\n\t\t([^\r\n\t]+),)\r?\n\t{","%1\n\t},\n\t{"):match("},(.+)").."}}}")()
 local css=[[
 body {
 	background-color:#101010;
@@ -189,7 +72,7 @@ local html=[[
 ]]
 for _,dat in pairs(programs) do
 	local name=dat[1]
-	if #dat[2]>0 then
+	if dat[2]~="none" then
 		html=html.."\t\t<br><div id=\"programs\"><a href=\""..dat[2].."\"><div id=\"title\">"..name.."</div></a>"
 	else
 		html=html.."\t\t<br><div id=\"programs\"><div id=\"title\">"..name.."</div>"
@@ -198,11 +81,11 @@ for _,dat in pairs(programs) do
 	for ind=3,#dat do
 		local pdat=dat[ind]
 		if type(pdat)=="table" then
-			local url=pdat[3]
+			local url=pdat[2]
 			if url:sub(1,1)=="/" then
 				url=dat[2]..url
 			end
-			html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[2].."</td></tr>\n"
+			html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
 		else
 			html=html.."\t\t\t"..pdat.."\n"
 		end
@@ -223,4 +106,3 @@ file:close()
 local file=assert(io.open("style.css","w"))
 file:write(css)
 file:close()
-
