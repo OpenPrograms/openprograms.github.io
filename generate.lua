@@ -73,6 +73,7 @@ local html=[[
 for _,dat in pairs(programs) do
 	local name=dat[1]
 	if dat[2]~="none" then
+		dat[2]="https://github.com"..dat[2]
 		html=html.."\t\t<br><div id=\"programs\"><a href=\""..dat[2].."\"><div id=\"title\">"..name.."</div></a>"
 	else
 		html=html.."\t\t<br><div id=\"programs\"><div id=\"title\">"..name.."</div>"
