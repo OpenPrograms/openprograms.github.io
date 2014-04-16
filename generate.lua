@@ -151,15 +151,15 @@ h2 {
 	color:#101010;
 }
 #programs {
-	font-weight:bold;
 	color:#101010;
 	background-color:#F0F0F0;
 	border-radius:5px;
-	font-size:130%;
-	text-align:center;
 	padding:10px;
 }
 #title {
+	font-weight:bold;
+	text-align:center;
+	font-size:130%;
 	color:#101010;
 	background-color:#E0E0E0;
 	border-radius:5px;
@@ -178,7 +178,8 @@ td {
 }
 ]]
 local html=[[
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 	<head>
 		<title>OpenPrograms</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
