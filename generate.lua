@@ -155,6 +155,12 @@ h2 {
 	border-radius:5px;
 	font-size:130%;
 	text-align:center;
+	padding-left:20px;
+	padding-bottom:10px;
+	padding-top:10px;
+}
+h5 {
+	color:#F0F0F0;
 }
 table, td {
 	border:0px;
@@ -163,7 +169,9 @@ table, td {
 local html=[[
 <html>
 	<head>
+		<title>OpenPrograms</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" type="image/ico" href="favicon.ico">
 	</head>
 	<body>
 		<br><center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center><br>
@@ -189,7 +197,7 @@ for _,dat in pairs(programs) do
 	html=html.."\t\t</table></div>\n"
 end
 local date=os.date("*t")
-html=html.."<h5>Generated on "..date.month.."/"..date.day.." at "..date.hour..":"..("0"):rep(2-#tostring(date.min))..date.min.."</h5>\n\t</body>\n</html>"
+html=html.."<a href=\"https://github.com/OpenPrograms/openprograms.github.io/blob/master/generate.lua\"><h5>Generated on "..date.month.."/"..date.day.." at "..date.hour..":"..("0"):rep(2-#tostring(date.min))..date.min.."</h5></a>\n\t</body>\n</html>"
 local file=assert(io.open("index.html","w"))
 file:write(html)
 file:close()

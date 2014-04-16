@@ -22,6 +22,12 @@ h2 {
 	border-radius:5px;
 	font-size:130%;
 	text-align:center;
+	padding-left:20px;
+	padding-bottom:10px;
+	padding-top:10px;
+}
+h5 {
+	color:#F0F0F0;
 }
 table, td {
 	border:0px;
