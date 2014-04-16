@@ -47,14 +47,10 @@ local programs={
 			"https://github.com/OpenPrograms/Lua-Logging/tree/master/lib",
 		},
 	},
-	{"Vexatos's programs","",
+	{"Vexatos' programs","",
 		{"OCGithub",
 			"Not functional",
 			"https://github.com/OpenPrograms/OCGithub/blob/master/src/launcher.lua"
-		},
-		{"example",
-			"Hello world",
-			"https://github.com/OpenPrograms/MiscPrograms/blob/master/Vexatos/example.lua",
 		},
 	},
 	{"JoshTheEnder's programs","https://github.com/OpenPrograms/JoshTheEnder-Programs",
@@ -127,6 +123,12 @@ local programs={
 		{"superstack",
 			"SuperStack! esolang",
 			"/blob/master/esolangs/superstack.lua"
+		},
+	},
+	{"Miscellaneous Programs","https://github.com/OpenPrograms/MiscPrograms",
+		{"example",
+			"Hello world",
+			"https://github.com/OpenPrograms/MiscPrograms/blob/master/Vexatos/example.lua",
 		},
 	},
 }
