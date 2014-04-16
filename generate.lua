@@ -171,7 +171,8 @@ local html=[[
 	<head>
 		<title>OpenPrograms</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="icon" type="image/ico" href="favicon.ico">
+		<link rel="icon" href="favicon.ico">
+		<link rel="shortcut icon" href="favicon.ico">
 	</head>
 	<body>
 		<br><center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center><br>
