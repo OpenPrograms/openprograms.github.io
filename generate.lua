@@ -133,7 +133,7 @@ local programs={
 local css=[[
 body {
 	background-color:#101010;
-	color:#F0F0F0;
+	color:#101010;
 	font-family:Arial, Helvetica, sans-serif
 }
 a:link {text-decoration:none;}
@@ -142,22 +142,19 @@ a:hover {text-decoration:none;}
 a:active {text-decoration:none;}
 a {
 	font-weight:bold;
-	color:#F0F0F0;
+	color:#101010;
 }
 h2 {
 	background-color:#F0F0F0;
 	color:#101010;
 }
-h2 a {
+#programs {
 	font-weight:bold;
-	background-color:#F0F0F0;
 	color:#101010;
-}
-li {
-	font-size:120%;
-}
-li a {
-	text-decoration:bold;
+	background-color:#F0F0F0;
+	border-radius:5px;
+	font-size:130%;
+	text-align:center;
 }
 table, td {
 	border:0px;
@@ -169,16 +166,16 @@ local html=[[
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center><br>
+		<br><center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center><br>
 ]]
 for _,dat in pairs(programs) do
 	local name=dat[1]
 	if #dat[2]>0 then
-		html=html.."\t\t<h2><a href=\""..dat[2].."\">"..name.."</a>"
+		html=html.."\t\t<br><a href=\""..dat[2].."\"><div id=\"programs\">"..name.."</a>"
 	else
-		html=html.."\t\t<h2>"..name
+		html=html.."\t\t<br><div id=\"programs\">"..name
 	end
-	html=html.."</h2>\n\t\t<table>\n"
+	html=html.."<br>\n\t\t<table>\n"
 	for ind=3,#dat do
 		local pdat=dat[ind]
 		if pname~=1 then
@@ -186,10 +183,10 @@ for _,dat in pairs(programs) do
 			if url:sub(1,1)=="/" then
 				url=dat[2]..url
 			end
-			html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td> &#9474; "..pdat[2].."</td></tr>\n"
+			html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[2].."</td></tr>\n"
 		end
 	end
-	html=html.."\t\t</table>\n"
+	html=html.."\t\t</table></div>\n"
 end
 local date=os.date("*t")
 html=html.."<h5>Generated on "..date.month.."/"..date.day.." at "..date.hour..":"..("0"):rep(2-#tostring(date.min))..date.min.."</h5>\n\t</body>\n</html>"
