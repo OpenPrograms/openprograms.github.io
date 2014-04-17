@@ -104,3 +104,14 @@ JoshTheEnder's programs:
 	DNS Serv:
 		/blob/master/DNS_Serv.lua
 		Not functional
+Bizzycola's programs:
+	OpenPrograms/Bizzycola-Programs
+	tapew:
+		/blob/master/Computronics/tapew.lua
+		Computronics tape writer
+	taper:
+		/blob/master/Computronics/taper.lua
+		Computronics tape player
+	tapel:
+		/blob/master/Computronics/tapel.lua
+		Computronics tape label creator
