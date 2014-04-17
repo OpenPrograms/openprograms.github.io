@@ -1,15 +1,15 @@
 --[[
-	a HTML/CSS generator, designed to make updating the site easier
+a HTML/CSS generator, designed to make updating the site easier
 --]]
 local file=io.open("programs.yaml","r")
 local yaml=file:read("*a")
 file:close()
 -- crappy parsing
 yaml=yaml:gsub("^#[^\r\n]+","")
-:gsub("\r?\n([^\r\n\t]+):\r?\n","\n{\"%1\",\n")
-:gsub("\r?\n\t([^\r\n\t]+[^\r\n\t:])\r?\n","\n\t\"%1\",\n")
-:gsub("\r?\n{","\n},\n{")
-:gsub("\r?\n\t([^\r\n\t]+):\r?\n","\n\t{\"%1\",\n")
+	:gsub("\r?\n([^\r\n\t]+):\r?\n","\n{\"%1\",\n")
+	:gsub("\r?\n\t([^\r\n\t]+[^\r\n\t:])\r?\n","\n\t\"%1\",\n")
+	:gsub("\r?\n{","\n},\n{")
+	:gsub("\r?\n\t([^\r\n\t]+):\r?\n","\n\t{\"%1\",\n")
 local n=1
 while n>0 do
 	yaml,n=yaml:gsub("\r?\n\t\t([^\r\n\t{\"][^\r\n\t]+)\r?\n","\n\t\t\"%1\",\n")

@@ -6,3 +6,4 @@ _site/
 
 #Eclipse stuff, yay
 .project
+.settings
