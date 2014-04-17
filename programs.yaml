@@ -33,7 +33,7 @@ Wobbo's programs:
 		/blob/master/getopt/getopt.lua
 		Command line argument parser
 	logging:
-		/OpenPrograms/Lua-Logging/tree/master/lib
+		OpenPrograms/Lua-Logging/tree/master/lib
 		Port of Lua-Logging
 Sangar's programs:
 	OpenPrograms/Sangar-Programs
@@ -54,8 +54,11 @@ Dustbin's programs:
 PixelToast's programs:
 	OpenPrograms/Pixel-Programs
 	TCPNet:
-		/P-T-/TCPNet
+		P-T-/TCPNet
 		Cross-server communication
+	2048:
+		/blob/master/2048.lua
+		basic 2048 game, somewhat playable
 	base64:
 		/blob/master/b64.lua
 		Fast b64 converter
