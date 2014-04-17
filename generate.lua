@@ -73,9 +73,10 @@ local html=[[
 for _,dat in pairs(programs) do
 	local name=dat[1]
 	if dat[2]~="none" then
-		dat[2]="https://github.com"..dat[2]
+		dat[2]="https://github.com/"..dat[2]
 		html=html.."\t\t<br><div id=\"programs\"><a href=\""..dat[2].."\"><div id=\"title\">"..name.."</div></a>"
 	else
+		dat[2]="https://github.com/"
 		html=html.."\t\t<br><div id=\"programs\"><div id=\"title\">"..name.."</div>"
 	end
 	html=html.."\n\t\t<table>\n"
@@ -85,6 +86,8 @@ for _,dat in pairs(programs) do
 			local url=pdat[2]
 			if url:sub(1,1)=="/" then
 				url=dat[2]..url
+			else
+				url="https://github.com/"..url
 			end
 			html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
 		else
