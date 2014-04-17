@@ -59,6 +59,9 @@ PixelToast's programs:
 	2048:
 		/blob/master/2048.lua
 		basic 2048 game, somewhat playable
+	mandlebrot:
+		/blob/master/mandlebrot.lua
+		optimized mandlebrot renderer
 	base64:
 		/blob/master/b64.lua
 		Fast b64 converter
