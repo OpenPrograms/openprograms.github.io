@@ -98,7 +98,7 @@ for _,dat in pairs(programs) do
 end
 local date=os.date("!*t")
 html=html..[[
-		<a href=\"https://github.com/OpenPrograms/openprograms.github.io/blob/master/generate.lua\">
+		<a href="https://github.com/OpenPrograms/openprograms.github.io/blob/master/generate.lua">
 			<h5>Generated on ]]..date.month.."/"..date.day.." at "..date.hour..":"..("0"):rep(2-#tostring(date.min))..date.min..[[ UTC</h5>
 		</a>
 	</body>
