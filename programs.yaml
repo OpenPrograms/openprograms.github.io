@@ -3,7 +3,7 @@ Kenny's programs:
 	OpenPrograms/Kenny-Programs
 	CompViewer:
 		/blob/master/CompViewer/CompViewer.lua
-		GUI component veiwer
+		GUI component viewer
 	LC Control:
 		/blob/master/LC_Control/stargate.lua
 		GUI stargate controller
@@ -89,6 +89,17 @@ PixelToast's programs:
 	superstack:
 		/blob/master/esolangs/superstack.lua
 		SuperStack! esolang
+Bizzycola's programs:
+	OpenPrograms/Bizzycola-Programs
+	tapew:
+		/blob/master/Computronics/tapew.lua
+		Computronics tape writer
+	taper:
+		/blob/master/Computronics/taper.lua
+		Computronics tape player
+	tapel:
+		/blob/master/Computronics/tapel.lua
+		Computronics tape label creator
 Miscellaneous programs:
 	OpenPrograms/MiscPrograms
 	example:
@@ -104,14 +115,3 @@ JoshTheEnder's programs:
 	DNS Serv:
 		/blob/master/DNS_Serv.lua
 		Not functional
-Bizzycola's programs:
-	OpenPrograms/Bizzycola-Programs
-	tapew:
-		/blob/master/Computronics/tapew.lua
-		Computronics tape writer
-	taper:
-		/blob/master/Computronics/taper.lua
-		Computronics tape player
-	tapel:
-		/blob/master/Computronics/tapel.lua
-		Computronics tape label creator
