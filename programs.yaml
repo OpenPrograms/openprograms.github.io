@@ -26,6 +26,9 @@ Wobbo's programs:
 	grep:
 		/blob/master/grep/grep.lua
 		POSIX grep with lua patterns
+	COLua:
+		Wobbo/COLua
+		OpenComputers specific COLua objects
 	energyd:
 		/blob/master/energyd/energyd.lua
 		Deamon for managing the energy levels
