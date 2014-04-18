@@ -72,7 +72,7 @@ PixelToast's programs:
 		/blob/master/hologram/sphere.lua
 		Hologram sphere
 	holo text:
-		/blob/master/hologram/sphere.lua
+		/blob/master/hologram/text.lua
 		Hologram dynamic text
 	agony:
 		/blob/master/esolangs/agony.lua
