@@ -62,6 +62,9 @@ PixelToast's programs:
 	2048:
 		/blob/master/2048.lua
 		basic 2048 game, somewhat playable
+	OCI:
+		/blob/master/oci.lua
+		Compact and efficient image format
 	mandlebrot:
 		/blob/master/mandlebrot.lua
 		Optimized mandlebrot renderer
