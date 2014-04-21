@@ -68,7 +68,7 @@ local html=[[
 		<link rel="icon" type="image/ico" href="favicon.ico">
 	</head>
 	<body>
-		<br><center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center><br>
+		<center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center>
 ]]
 for _,dat in pairs(programs) do
 	local name=dat[1]
