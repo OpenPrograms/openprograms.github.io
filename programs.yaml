@@ -109,6 +109,29 @@ Bizzycola's programs:
 	tapel:
 		/blob/master/Computronics/tapel.lua
 		Computronics tape label creator
+gamax92's programs:
+	OpenPrograms/gamax92-Programs
+	loadtape:
+		/blob/master/loadtape.lua
+		Computronics tape writer
+	formattape:
+		/blob/master/formattape.lua
+		Computronics tape emptier
+	dumptape:
+		/blob/master/dumptape.lua
+		Computronics tape-to-file converter
+	tapefs:
+		/blob/master/tapefs.lua
+		Computronics tape-to-file filesystem proxy library
+	tapefsd:
+		/blob/master/tapefsd.lua
+		Computronics tape drive mounter
+	fat16:
+		/blob/master/fat16.lua
+		fat16 format filesystem proxy library
+	fattest:
+		/blob/master/fattest.lua
+		fat16 information display
 Miscellaneous programs:
 	OpenPrograms/MiscPrograms
 	example:
