@@ -103,9 +103,12 @@ Bizzycola's programs:
 	tapew:
 		/blob/master/Computronics/tapew.lua
 		Computronics tape writer
+	tapep:
+		/blob/master/Computronics/tapep.lua
+		Computronics tape playing/pausing program
 	taper:
 		/blob/master/Computronics/taper.lua
-		Computronics tape player
+		Computronics tape rewinder
 	tapel:
 		/blob/master/Computronics/tapel.lua
 		Computronics tape label creator
