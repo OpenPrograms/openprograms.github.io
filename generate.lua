@@ -33,13 +33,38 @@ h2 {
 	background-color:#F0F0F0;
 	color:#101010;
 }
-#programs {
+.bvc { left: -15px }
+.bevel, .content { border-width: 15px }
+.bevel, .content { border-color: #F0F0F0; border-style:solid; }
+
+.bvc {
+    margin: 15 15 15 15;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.bvc .tr, .bvc .tl, .bvc .br, .bvc .bl { height: 0px; width: 100%; }
+.bvc .tr, .bvc .tl { border-top: 0; }
+.bvc .br, .bvc .bl { border-bottom: 0; }
+.bvc .tr, .bvc .br { border-right-color: transparent; }
+.bvc .tl, .bvc .bl { border-left-color: transparent; }
+.no_bevel { height: 0px; width: 100%; border-bottom: 0; }
+
+.content {
+    width: 100%;
+    border-top: 0;
+    border-bottom: 0;
+	color:#101010;
+	background-color:#F0F0F0;
+}
+
+.programs {
 	color:#101010;
 	background-color:#F0F0F0;
 	border-radius:5px;
 	padding:10px;
 }
-#title {
+.title {
 	font-weight:bold;
 	text-align:center;
 	font-size:130%;
@@ -74,10 +99,10 @@ for _,dat in pairs(programs) do
 	local name=dat[1]
 	if dat[2]~="none" then
 		dat[2]="https://github.com/"..dat[2]
-		html=html.."\t\t<br><div id=\"programs\"><a href=\""..dat[2].."\"><div id=\"title\">"..name.."</div></a>"
+		html=html.."\t\t<div class=\"bvc\"><div class=\"bevel tl tr\"></div><div class=\"content\"><a href=\""..dat[2].."\"><div class=\"title\">"..name.."</div></a>"
 	else
 		dat[2]="https://github.com/"
-		html=html.."\t\t<br><div id=\"programs\"><div id=\"title\">"..name.."</div>"
+		html=html.."\t\t<div class=\"bvc\"><div class=\"bevel tl tr\"></div><div class=\"content\"><div class=\"title\">"..name.."</div>"
 	end
 	html=html.."\n\t\t<table>\n"
 	for ind=3,#dat do
@@ -94,7 +119,7 @@ for _,dat in pairs(programs) do
 			html=html.."\t\t\t"..pdat.."\n"
 		end
 	end
-	html=html.."\t\t</table></div>\n"
+	html=html.."\t\t</table></div><div class=\"bevel bl br\"></div></div>\n"
 end
 local date=os.date("!*t")
 html=html..[[
