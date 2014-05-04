@@ -1,20 +1,52 @@
 --[[
 a HTML/CSS generator, designed to make updating the site easier
 --]]
+local https=require("ssl.https")
 local file=io.open("programs.yaml","r")
 local yaml=file:read("*a")
 file:close()
 -- crappy parsing
-yaml=yaml:gsub("^#[^\r\n]+","")
-	:gsub("\r?\n([^\r\n\t]+):\r?\n","\n{\"%1\",\n")
-	:gsub("\r?\n\t([^\r\n\t]+[^\r\n\t:])\r?\n","\n\t\"%1\",\n")
-	:gsub("\r?\n{","\n},\n{")
-	:gsub("\r?\n\t([^\r\n\t]+):\r?\n","\n\t{\"%1\",\n")
-local n=1
-while n>0 do
-	yaml,n=yaml:gsub("\r?\n\t\t([^\r\n\t{\"][^\r\n\t]+)\r?\n","\n\t\t\"%1\",\n")
+local function parse(yaml)
+	local out={}
+	for line in yaml:gmatch("[^\r\n]+") do
+		if not line:match("^#") then
+			local t,m=line:match("^(\t*)(.*)")
+			if #t==0 and #m>0 then
+				table.insert(out,{m:match("(.+):")})
+			elseif #t==1 then
+				if m:match(":") then
+					table.insert(out[#out],{m:match("(.+):")})
+				else
+					table.insert(out[#out],m)
+				end
+			elseif #t==2 then
+				local t=out[#out]
+				table.insert(t[#t],m)
+			end
+		end
+	end
+	return out
 end
-local programs=loadstring("return {"..yaml:gsub(",\r?\n}","\n\t}\n}"):gsub("(\r?\n\t\t([^\r\n\t]+),)\r?\n\t{","%1\n\t},\n\t{"):match("},(.+)").."}}}")()
+print("parsing programs.yaml")
+local programs=parse(yaml)
+for l1=1,#programs do
+	local prog=programs[l1]
+	if prog[2]~="none" then
+		local url="https://raw.githubusercontent.com/"..prog[2].."/blob/programs.yaml"
+		print("looking for "..url)
+		local res,code=https.request(url)
+		if code==200 then
+			print("parsing")
+			programs[l1]=parse(res)
+			able.insert(programs[l1],1,prog[2\])
+			table.insert(programs[l1],1,prog[1])
+		else
+			print("failed ("..code..")")
+		end
+	end
+end
+
+
 local css=[[
 body {
 	background-color:#101010;
@@ -39,8 +71,7 @@ h2 {
 
 .bvc {
     margin: 15 15 15 15;
-    position: relative;
-    margin-bottom: 0px;
+    position: relative;	`   margin-bottom: 0px;
 }
 
 .bvc .tr, .bvc .tl, .bvc .br, .bvc .bl { height: 0px; width: 100%; }
