@@ -1,20 +1,21 @@
 --[[
 a HTML/CSS generator, designed to make updating the site easier
 --]]
-local file=io.open("programs.yaml","r")
+local file=io.open("repos.yaml","r")
 local yaml=file:read("*a")
 file:close()
 -- crappy parsing
-yaml=yaml:gsub("^#[^\r\n]+","")
-	:gsub("\r?\n([^\r\n\t]+):\r?\n","\n{\"%1\",\n")
-	:gsub("\r?\n\t([^\r\n\t]+[^\r\n\t:])\r?\n","\n\t\"%1\",\n")
-	:gsub("\r?\n{","\n},\n{")
-	:gsub("\r?\n\t([^\r\n\t]+):\r?\n","\n\t{\"%1\",\n")
+yaml=yaml:gsub("\r?\n","\n")
+  :gsub("^#[^\n]+","")
+	:gsub("\n([^\n\t]+):\n","\n{\"%1\",\n")
+	:gsub("\n\t([^\n\t]+[^\n\t:])\n","\n\t\"%1\",\n")
+	:gsub("\n{","\n},\n{")
 local n=1
-while n>0 do
-	yaml,n=yaml:gsub("\r?\n\t\t([^\r\n\t{\"][^\r\n\t]+)\r?\n","\n\t\t\"%1\",\n")
-end
-local programs=loadstring("return {"..yaml:gsub(",\r?\n}","\n\t}\n}"):gsub("(\r?\n\t\t([^\r\n\t]+),)\r?\n\t{","%1\n\t},\n\t{"):match("},(.+)").."}}}")()
+
+local programs=loadstring("return {"..yaml:gsub(",\n}","\n\t}\n}"):gsub("(\n\t\t([^\n\t]+),)\n\t{","%1\n\t},\n\t{"):match("},(.+)").."}}}")()
+
+local http=require("socket.http")
+
 local css=[[
 body {
 	background-color:#101010;
