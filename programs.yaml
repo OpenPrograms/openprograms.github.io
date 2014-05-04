@@ -4,6 +4,9 @@ Kenny's programs:
 	CompViewer:
 		/blob/master/CompViewer/CompViewer.lua
 		GUI component viewer
+	Lua Tutorial:
+		/blob/master/Ingame_Lua_Tutorial/LuaTutorial.lua
+		Ingame Lua tutorial
 	LC Control:
 		/blob/master/LC_Control/stargate.lua
 		GUI stargate controller
@@ -103,9 +106,12 @@ Bizzycola's programs:
 	tapew:
 		/blob/master/Computronics/tapew.lua
 		Computronics tape writer
+	tapep:
+		/blob/master/Computronics/tapep.lua
+		Computronics tape playing/pausing program
 	taper:
 		/blob/master/Computronics/taper.lua
-		Computronics tape player
+		Computronics tape rewinder
 	tapel:
 		/blob/master/Computronics/tapel.lua
 		Computronics tape label creator
@@ -141,7 +147,10 @@ Miscellaneous programs:
 		/blob/master/Vexatos/example.lua
 		Hello world by Vexatos
 Vexatos' programs:
-	none
+	OpenPrograms/Vexatos-Programs
+	Song API:
+		/tree/master/song
+		An API to play whole songs using computer.beep
 	OCGithub:
 		OpenPrograms/OCGithub/blob/master/src/launcher.lua
 		Not functional
