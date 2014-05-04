@@ -59,48 +59,6 @@ DustBin's programs:
 		Compression API
 PixelToast's programs:
 	OpenPrograms/Pixel-Programs
-	TCPNet:
-		P-T-/TCPNet
-		Cross-server communication
-	2048:
-		/blob/master/2048.lua
-		basic 2048 game, somewhat playable
-	OCI:
-		/blob/master/oci.lua
-		Compact and efficient image format
-	mandlebrot:
-		/blob/master/mandlebrot.lua
-		Optimized mandlebrot renderer
-	base64:
-		/blob/master/b64.lua
-		Fast b64 converter
-	holo menger:
-		/blob/master/hologram/menger.lua
-		Hologram menger sponge
-	holo sphere:
-		/blob/master/hologram/sphere.lua
-		Hologram sphere
-	holo text:
-		/blob/master/hologram/text.lua
-		Hologram dynamic text
-	agony:
-		/blob/master/esolangs/agony.lua
-		Agony esolang
-	barely:
-		/blob/master/esolangs/barely.lua
-		Barely esolang
-	befunge:
-		/blob/master/esolangs/befunge.lua
-		Befunge esolang
-	brainfuck:
-		/blob/master/esolangs/brainfuck.lua
-		Brainfuck esolang
-	malbolge:
-		/blob/master/esolangs/malbolge.lua
-		Malbolge esolang
-	superstack:
-		/blob/master/esolangs/superstack.lua
-		SuperStack! esolang
 Bizzycola's programs:
 	OpenPrograms/Bizzycola-Programs
 	tapew:

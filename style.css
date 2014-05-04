@@ -21,8 +21,7 @@ h2 {
 
 .bvc {
     margin: 15 15 15 15;
-    position: relative;
-    margin-bottom: 0px;
+    position: relative;	`   margin-bottom: 0px;
 }
 
 .bvc .tr, .bvc .tl, .bvc .br, .bvc .bl { height: 0px; width: 100%; }

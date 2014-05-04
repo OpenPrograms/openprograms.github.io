@@ -32,13 +32,13 @@ local programs=parse(yaml)
 for l1=1,#programs do
 	local prog=programs[l1]
 	if prog[2]~="none" then
-		local url="https://raw.githubusercontent.com/"..prog[2].."/blob/programs.yaml"
+		local url="https://raw.githubusercontent.com/"..prog[2].."/master/programs.yaml"
 		print("looking for "..url)
 		local res,code=https.request(url)
 		if code==200 then
 			print("parsing")
 			programs[l1]=parse(res)
-			able.insert(programs[l1],1,prog[2])
+			table.insert(programs[l1],1,prog[2])
 			table.insert(programs[l1],1,prog[1])
 		else
 			print("failed ("..code..")")
@@ -161,3 +161,9 @@ html=html..[[
 	</body>
 </html>
 ]]
+local file=assert(io.open("index.html","w"))
+file:write(html)
+file:close()
+local file=assert(io.open("style.css","w"))
+file:write(css)
+file:close()
