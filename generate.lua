@@ -17,7 +17,8 @@ local function parse(yaml)
 	local out={}
 	for line in yaml:gmatch("[^\r\n]+") do
 		if not line:match("^#") then
-			local t,m=line:match("^(\t*)(.*)")
+			local t,m=line:match("^(%s*)(.*)")
+			t=t:gsub("  ","\t")
 			if #t==0 and #m>0 then
 				table.insert(out,{m:match("(.+):")})
 			elseif #t==1 then
@@ -136,6 +137,7 @@ local html=[[
 print("generating page")
 for _,dat in pairs(programs) do
 	local name=dat[1]
+	print("compiling repo "..tostring(name))
 	if dat[2]~="none" then
 		dat[2]="https://github.com/"..dat[2]
 		html=html.."\t\t<div class=\"bvc\"><div class=\"bevel tl tr\"></div><div class=\"content\"><a href=\""..dat[2].."\"><div class=\"title\">"..name.."</div></a>"
@@ -147,6 +149,7 @@ for _,dat in pairs(programs) do
 	for ind=3,#dat do
 		local pdat=dat[ind]
 		if type(pdat)=="table" then
+			print("compiling program "..tostring(pdat[1]))
 			local url=pdat[2]
 			if url:sub(1,1)=="/" then
 				url=dat[2]..url
