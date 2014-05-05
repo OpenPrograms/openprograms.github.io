@@ -9,7 +9,7 @@ if not err then
 	print(https)
 	os.exit()
 end
-local file=assert(io.open((... or "").."programs.yaml","r"))
+local file=assert(io.open((... or "").."repos.yaml","r"))
 local yaml=file:read("*a")
 file:close()
 -- crappy parsing
