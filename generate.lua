@@ -1,7 +1,14 @@
 --[[
 a HTML/CSS generator, designed to make updating the site easier
 --]]
-local https=require("ssl.https")
+local err,https=pcall(require,"ssl.https")
+if not err then
+	print("you need to install luasec")
+	print("install using luarocks")
+	print("or http://love2d.org/forums/viewtopic.php?f=5&t=76728")
+	print(https)
+	os.exit()
+end
 local file=io.open("programs.yaml","r")
 local yaml=file:read("*a")
 file:close()
@@ -65,8 +72,8 @@ h2 {
 	background-color:#F0F0F0;
 	color:#101010;
 }
-.bvc { left: -15px }
-.bevel, .content { border-width: 15px }
+.bvc { left: -10px }
+.bevel, .content { border-width: 10px }
 .bevel, .content { border-color: #F0F0F0; border-style:solid; }
 
 .bvc {
