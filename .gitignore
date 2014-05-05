@@ -1,4 +1,5 @@
 _site/
+testing/
 
 #Because Wobbo uses vim and stuff
 *.swp
