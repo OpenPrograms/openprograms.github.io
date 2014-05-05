@@ -106,12 +106,6 @@ Miscellaneous programs:
 		Hello world by Vexatos
 Vexatos' programs:
 	OpenPrograms/Vexatos-Programs
-	Song API:
-		/tree/master/song
-		An API to play whole songs using computer.beep
-	OCGithub:
-		OpenPrograms/OCGithub/blob/master/src/launcher.lua
-		Not functional
 JoshTheEnder's programs:
 	OpenPrograms/JoshTheEnder-Programs
 	DNS Serv:
