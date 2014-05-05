@@ -15,8 +15,8 @@ h2 {
 	background-color:#F0F0F0;
 	color:#101010;
 }
-.bvc { left: -15px }
-.bevel, .content { border-width: 15px }
+.bvc { left: -10px }
+.bevel, .content { border-width: 10px }
 .bevel, .content { border-color: #F0F0F0; border-style:solid; }
 
 .bvc {
