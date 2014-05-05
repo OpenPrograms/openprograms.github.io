@@ -1,5 +1,5 @@
 --[[
-a HTML/CSS generator, designed to make updating the site easier
+	a HTML/CSS generator, designed to make updating the site easier
 --]]
 local err,https=pcall(require,"ssl.https")
 if not err then
@@ -9,7 +9,7 @@ if not err then
 	print(https)
 	os.exit()
 end
-local file=io.open("programs.yaml","r")
+local file=assert(io.open((... or "").."programs.yaml","r"))
 local yaml=file:read("*a")
 file:close()
 -- crappy parsing
@@ -21,7 +21,7 @@ local function parse(yaml)
 			if #t==0 and #m>0 then
 				table.insert(out,{m:match("(.+):")})
 			elseif #t==1 then
-				if m:match(":") then
+				if m:match(":$") then
 					table.insert(out[#out],{m:match("(.+):")})
 				else
 					table.insert(out[#out],m)
@@ -161,16 +161,20 @@ for _,dat in pairs(programs) do
 	html=html.."\t\t</table></div><div class=\"bevel bl br\"></div></div>\n"
 end
 local date=os.date("!*t")
+local gen=date.month.."/"..date.day.." at "..date.hour..":"..("0"):rep(2-#tostring(date.min))..date.min
 html=html..[[
 		<a href="https://github.com/OpenPrograms/openprograms.github.io/blob/master/generate.lua">
-			<h5>Generated on ]]..date.month.."/"..date.day.." at "..date.hour..":"..("0"):rep(2-#tostring(date.min))..date.min..[[ UTC</h5>
+			<h5>Generated on ]]..gen..[[ UTC</h5>
 		</a>
 	</body>
 </html>
 ]]
-local file=assert(io.open("index.html","w"))
+css=css..[[
+/* Generated on ]]..gen..[[ UTC
+]]
+local file=assert(io.open((... or "").."index.html","w"))
 file:write(html)
 file:close()
-local file=assert(io.open("style.css","w"))
+local file=assert(io.open((... or "").."style.css","w"))
 file:write(css)
 file:close()
