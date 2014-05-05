@@ -5,9 +5,8 @@ _site/
 *.swo
 
 #Eclipse stuff, yay
-.project
-.settings
-.buildpath
+.*
+!.git*
 
 #Windows
 Thumbs.db
