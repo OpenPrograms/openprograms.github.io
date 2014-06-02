@@ -1,3 +1,3 @@
 {
-["Vexatos-Programs"]
+"Vexatos-Programs"
 }
