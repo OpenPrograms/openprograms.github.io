@@ -1,4 +1,7 @@
 {
+	["Altenius' programs"]={
+		repo="OpenPrograms/Altenius-Programs",
+	},
 	["Bizzycola's programs"]={
 		repo="OpenPrograms/Bizzycola-Programs",
 	},
