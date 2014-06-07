@@ -67,19 +67,11 @@ for l1=1,#repos do
 		if data then
 			data=setfenv(assert(loadstring("return "..data)),{})()
 			for name,dat in pairs(data) do
-			 if dat.repo then
 				table.insert(prog,{
 					name,
 					prog[2].."/"..(dat.repo or "potato"),
 					dat.description,
 				})
-				else
-				 table.insert(prog,{
-					name,
-					nil,
-					dat.description,
-				})
-				end
 			end
 		else
 			local data=get("https://raw.githubusercontent.com/"..prog[2].."/master/programs.yaml")
@@ -117,8 +109,8 @@ h2 {
 .bevel, .content { border-color: #F0F0F0; border-style:solid; }
 
 .bvc {
-		margin: 15 15 15 15;
-		position: relative;	`   margin-bottom: 0px;
+    margin: 15 15 15 15;
+    position: relative;	`   margin-bottom: 0px;
 }
 
 .bvc .tr, .bvc .tl, .bvc .br, .bvc .bl { height: 0px; width: 100%; }
@@ -129,9 +121,9 @@ h2 {
 .no_bevel { height: 0px; width: 100%; border-bottom: 0; }
 
 .content {
-		width: 100%;
-		border-top: 0;
-		border-bottom: 0;
+    width: 100%;
+    border-top: 0;
+    border-bottom: 0;
 	color:#101010;
 	background-color:#F0F0F0;
 }
@@ -190,16 +182,12 @@ for _,dat in pairs(repos) do
 		if type(pdat)=="table" then
 			print("compiling program "..tostring(pdat[1]))
 			local url=pdat[2]
-			if url then
-				if url:sub(1,1)=="/" then
-					url=dat[2]..url
-				else
-					url="https://github.com/"..url
-				end
-				html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
+			if url:sub(1,1)=="/" then
+				url=dat[2]..url
 			else
-				html=html.."\t\t\t<tr><td><a>"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
+				url="https://github.com/"..url
 			end
+			html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
 		else
 			html=html.."\t\t\t"..pdat.."\n"
 		end
