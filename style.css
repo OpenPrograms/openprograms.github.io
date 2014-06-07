@@ -20,8 +20,8 @@ h2 {
 .bevel, .content { border-color: #F0F0F0; border-style:solid; }
 
 .bvc {
-    margin: 15 15 15 15;
-    position: relative;	`   margin-bottom: 0px;
+		margin: 15 15 15 15;
+		position: relative;	`   margin-bottom: 0px;
 }
 
 .bvc .tr, .bvc .tl, .bvc .br, .bvc .bl { height: 0px; width: 100%; }
@@ -32,9 +32,9 @@ h2 {
 .no_bevel { height: 0px; width: 100%; border-bottom: 0; }
 
 .content {
-    width: 100%;
-    border-top: 0;
-    border-bottom: 0;
+		width: 100%;
+		border-top: 0;
+		border-bottom: 0;
 	color:#101010;
 	background-color:#F0F0F0;
 }
