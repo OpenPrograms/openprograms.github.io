@@ -1,6 +1,7 @@
 --[[
 	a HTML/CSS generator, designed to make updating the site easier
 --]]
+os.execute("cd "..(... or ""))
 local err,https=pcall(require,"ssl.https")
 if not err then
 	print("you need to install luasec")
@@ -9,9 +10,24 @@ if not err then
 	print(https)
 	os.exit()
 end
-local file=assert(io.open((... or "").."repos.yaml","r"))
-local yaml=file:read("*a")
+local file=assert(io.open((... or "").."repos.cfg","r"))
+local repodat=setfenv(assert(loadstring("return "..file:read("*a"))),{})()
 file:close()
+local repos={}
+for name,data in pairs(repodat) do
+	local out={
+		name,(data.repo or "none")
+	}
+	for k,v in pairs(data.programs or {}) do
+		table.insert(out,{
+			k,v.repo,v.desc
+		})
+	end
+	table.insert(repos,out)
+end
+table.sort(repos,function(a,b)
+	return a[1]<b[1]
+end)
 -- crappy parsing
 local function parse(yaml)
 	local out={}
@@ -35,21 +51,36 @@ local function parse(yaml)
 	end
 	return out
 end
-print("parsing programs.yaml")
-local programs=parse(yaml)
-for l1=1,#programs do
-	local prog=programs[l1]
+local function get(url)
+	print("looking for "..url)
+	local res,code=https.request(url)
+	if code==200 then
+		return res
+	else
+		print("failed ("..code..")")
+	end
+end
+for l1=1,#repos do
+	local prog=repos[l1]
 	if prog[2]~="none" then
-		local url="https://raw.githubusercontent.com/"..prog[2].."/master/programs.yaml"
-		print("looking for "..url)
-		local res,code=https.request(url)
-		if code==200 then
-			print("parsing")
-			programs[l1]=parse(res)
-			table.insert(programs[l1],1,prog[2])
-			table.insert(programs[l1],1,prog[1])
+		local data=get("https://raw.githubusercontent.com/"..prog[2].."/master/programs.cfg")
+		if data then
+			data=setfenv(assert(loadstring("return "..data)),{})()
+			for name,dat in pairs(data) do
+				table.insert(prog,{
+					name,
+					prog[1].."/tree/"..(dat.repo or "potato"),
+					dat.description,
+				})
+			end
 		else
-			print("failed ("..code..")")
+			local data=get("https://raw.githubusercontent.com/"..prog[2].."/master/programs.yaml")
+			if data then
+				print("parsing")
+				repos[l1]=parse(data)
+				table.insert(repos[l1],1,prog[2])
+				table.insert(repos[l1],1,prog[1])
+			end
 		end
 	end
 end
@@ -135,7 +166,7 @@ local html=[[
 		<center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center>
 ]]
 print("generating page")
-for _,dat in pairs(programs) do
+for _,dat in pairs(repos) do
 	local name=dat[1]
 	print("compiling repo "..tostring(name))
 	if dat[2]~="none" then
@@ -166,15 +197,10 @@ end
 local date=os.date("!*t")
 local gen=date.month.."/"..date.day.." at "..date.hour..":"..("0"):rep(2-#tostring(date.min))..date.min
 html=html..[[
-		<a href="https://github.com/OpenPrograms/openprograms.github.io/blob/master/generate.lua">
-			<h5>Generated on ]]..gen..[[ UTC</h5>
-		</a>
 	</body>
 </html>
 ]]
-css=css..[[
-/* Generated on ]]..gen..[[ UTC
-]]
+css=css
 local file=assert(io.open((... or "").."index.html","w"))
 file:write(html)
 file:close()
