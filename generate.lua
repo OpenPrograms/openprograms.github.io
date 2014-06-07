@@ -69,7 +69,7 @@ for l1=1,#repos do
 			for name,dat in pairs(data) do
 				table.insert(prog,{
 					name,
-					prog[1].."/tree/"..(dat.repo or "potato"),
+					prog[2].."/"..(dat.repo or "potato"),
 					dat.description,
 				})
 			end
