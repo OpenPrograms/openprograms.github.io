@@ -67,11 +67,19 @@ for l1=1,#repos do
 		if data then
 			data=setfenv(assert(loadstring("return "..data)),{})()
 			for name,dat in pairs(data) do
-				table.insert(prog,{
-					name,
-					prog[2].."/"..(dat.repo or "potato"),
-					dat.description,
-				})
+				if dat.repo then
+					table.insert(prog,{
+						name,
+						prog[2].."/"..dat.repo,
+						dat.description,
+					})
+				else
+					table.insert(prog,{
+						name,
+						nil,
+						dat.description,
+					})
+				end
 			end
 		else
 			local data=get("https://raw.githubusercontent.com/"..prog[2].."/master/programs.yaml")
@@ -182,12 +190,16 @@ for _,dat in pairs(repos) do
 		if type(pdat)=="table" then
 			print("compiling program "..tostring(pdat[1]))
 			local url=pdat[2]
-			if url:sub(1,1)=="/" then
-				url=dat[2]..url
+			if url then
+				if url:sub(1,1)=="/" then
+					url=dat[2]..url
+				else
+					url="https://github.com/"..url
+				end
+				html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
 			else
-				url="https://github.com/"..url
+				html=html.."\t\t\t<tr><td><a>"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
 			end
-			html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
 		else
 			html=html.."\t\t\t"..pdat.."\n"
 		end
