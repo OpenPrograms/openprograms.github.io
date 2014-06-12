@@ -10,6 +10,7 @@ if not err then
 	print(https)
 	os.exit()
 end
+
 local file=assert(io.open((... or "").."repos.cfg","r"))
 local repodat=setfenv(assert(loadstring("return "..file:read("*a"))),{})()
 file:close()
@@ -25,8 +26,9 @@ for name,data in pairs(repodat) do
 	end
 	table.insert(repos,out)
 end
+
 table.sort(repos,function(a,b)
-	return a[1]<b[1]
+	return a[1]:lower()<b[1]:lower()
 end)
 -- crappy parsing
 local function parse(yaml)
@@ -51,6 +53,7 @@ local function parse(yaml)
 	end
 	return out
 end
+
 local function get(url)
 	print("looking for "..url)
 	local res,code=https.request(url)
@@ -60,6 +63,7 @@ local function get(url)
 		print("failed ("..code..")")
 	end
 end
+
 for l1=1,#repos do
 	local prog=repos[l1]
 	if prog[2]~="none" then
