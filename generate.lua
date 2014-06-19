@@ -192,7 +192,7 @@ for _,dat in pairs(repos) do
 	for ind=3,#dat do
 		local pdat=dat[ind]
 		if type(pdat)=="table" then
-			print("compiling program "..tostring(pdat[1]))
+			print("\tcompiling program "..tostring(pdat[1]))
 			local url=pdat[2]
 			if url then
 				if url:sub(1,1)=="/" then
@@ -202,7 +202,8 @@ for _,dat in pairs(repos) do
 				end
 				html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
 			else
-				html=html.."\t\t\t<tr><td><a>"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
+				print("\t\t\tWARNING: "..pdat[1].." doesnt have a url!")
+				html=html.."\t\t\t<tr><td><a style=\"color:#505050\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
 			end
 		else
 			html=html.."\t\t\t"..pdat.."\n"
