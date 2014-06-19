@@ -55,12 +55,9 @@ local function parse(yaml)
 end
 
 local function get(url)
-	print("looking for "..url)
 	local res,code=https.request(url)
 	if code==200 then
 		return res
-	else
-		print("failed ("..code..")")
 	end
 end
 
@@ -86,12 +83,14 @@ for l1=1,#repos do
 				end
 			end
 		else
+			print("WARNING: "..prog[2].." doesnt have a programs.cfg")
 			local data=get("https://raw.githubusercontent.com/"..prog[2].."/master/programs.yaml")
 			if data then
-				print("parsing")
 				repos[l1]=parse(data)
 				table.insert(repos[l1],1,prog[2])
 				table.insert(repos[l1],1,prog[1])
+			else
+				print("WARNING: "..prog[2].." doesnt have a programs.yaml and cant be listed")
 			end
 		end
 	end
@@ -177,10 +176,10 @@ local html=[[
 	<body>
 		<center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center>
 ]]
-print("generating page")
+print("\ngenerating page\n")
 for _,dat in pairs(repos) do
 	local name=dat[1]
-	print("compiling repo "..tostring(name))
+	print("repo "..tostring(name))
 	if dat[2]~="none" then
 		dat[2]="https://github.com/"..dat[2]
 		html=html.."\t\t<div class=\"bvc\"><div class=\"bevel tl tr\"></div><div class=\"content\"><a href=\""..dat[2].."\"><div class=\"title\">"..name.."</div></a>"
@@ -192,7 +191,7 @@ for _,dat in pairs(repos) do
 	for ind=3,#dat do
 		local pdat=dat[ind]
 		if type(pdat)=="table" then
-			print("\tcompiling program "..tostring(pdat[1]))
+			print("\tprogram "..tostring(pdat[1]))
 			local url=pdat[2]
 			if url then
 				if url:sub(1,1)=="/" then
@@ -202,7 +201,7 @@ for _,dat in pairs(repos) do
 				end
 				html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
 			else
-				print("\t\t\tWARNING: "..pdat[1].." doesnt have a url!")
+				print("\t\tWARNING: "..pdat[1].." doesnt have a url!")
 				html=html.."\t\t\t<tr><td><a style=\"color:#505050\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
 			end
 		else
