@@ -102,7 +102,16 @@ local res,err=xpcall(function()
 			end
 		end
 	end
-
+	
+	local url_override_because_vexatos={
+		["immibis-compress"]="/tree/master/immibis-compress",
+		ipack="/blob/master/immibis-compress/ipack.lua",
+		dnsd="/blob/master/dns-server.lua",
+		midi="/blob/master/midi.lua",
+		geo2holo="/blob/master/midi.lua",
+		libnoise="/blob/master/noise.lua",
+		["holo-demos"]="/",
+	}
 
 	local css=[[
 body {
@@ -199,7 +208,7 @@ td {
 			local pdat=dat[ind]
 			if type(pdat)=="table" then
 				print("\tprogram "..tostring(pdat[1]))
-				local url=pdat[2]
+				local url=pdat[2] or url_override_because_vexatos[pdat[1]]
 				if url then
 					if url:sub(1,1)=="/" then
 						url=dat[2]..url
