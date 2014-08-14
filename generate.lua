@@ -75,19 +75,21 @@ local res,err=xpcall(function()
 				end
 				data=setfenv(data,{})()
 				for name,dat in pairs(data) do
-					if dat.repo then
-						table.insert(prog,{
-							name,
-							prog[2].."/"..dat.repo,
-							dat.description,
-						})
-					else
-						table.insert(prog,{
-							name,
-							nil,
-							dat.description,
-						})
-					end
+          if not dat.hidden then
+            if dat.repo then
+              table.insert(prog,{
+                name,
+                prog[2].."/"..dat.repo,
+                dat.description,
+              })
+            else
+              table.insert(prog,{
+                name,
+                nil,
+                dat.description,
+              })
+            end
+          end
 				end
 			else
 				print("WARNING: "..prog[2].." doesnt have a programs.cfg")
