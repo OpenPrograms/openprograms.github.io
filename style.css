@@ -1,27 +1,27 @@
 body {
-	background-color:#101010;
-	color:#101010;
-	font-family:Arial, Helvetica, sans-serif
+  background-color:#101010;
+  color:#101010;
+  font-family:Arial, Helvetica, sans-serif
 }
 a:link {text-decoration:none;}
 a:visited {text-decoration:none;}
 a:hover {text-decoration:none;}
 a:active {text-decoration:none;}
 a {
-	font-weight:bold;
-	color:#101010;
+  font-weight:bold;
+  color:#101010;
 }
 h2 {
-	background-color:#F0F0F0;
-	color:#101010;
+  background-color:#F0F0F0;
+  color:#101010;
 }
 .bvc { left: -10px }
 .bevel, .content { border-width: 10px }
 .bevel, .content { border-color: #F0F0F0; border-style:solid; }
 
 .bvc {
-	margin: 15 15 15 15;
-	position: relative;	`   margin-bottom: 0px;
+  margin: 15 15 15 15;
+  position: relative; `   margin-bottom: 0px;
 }
 
 .bvc .tr, .bvc .tl, .bvc .br, .bvc .bl { height: 0px; width: 100%; }
@@ -32,36 +32,36 @@ h2 {
 .no_bevel { height: 0px; width: 100%; border-bottom: 0; }
 
 .content {
-	width: 100%;
-	border-top: 0;
-	border-bottom: 0;
-	color:#101010;
-	background-color:#F0F0F0;
+  width: 100%;
+  border-top: 0;
+  border-bottom: 0;
+  color:#101010;
+  background-color:#F0F0F0;
 }
 
 .programs {
-	color:#101010;
-	background-color:#F0F0F0;
-	border-radius:5px;
-	padding:10px;
+  color:#101010;
+  background-color:#F0F0F0;
+  border-radius:5px;
+  padding:10px;
 }
 .title {
-	font-weight:bold;
-	text-align:center;
-	font-size:130%;
-	color:#101010;
-	background-color:#E0E0E0;
-	border-radius:5px;
-	text-align:center;
-	padding:5px;
+  font-weight:bold;
+  text-align:center;
+  font-size:130%;
+  color:#101010;
+  background-color:#E0E0E0;
+  border-radius:5px;
+  text-align:center;
+  padding:5px;
 }
 h5 {
-	color:#F0F0F0;
+  color:#F0F0F0;
 }
 table {
-	border:0px;
-	padding:10px;
+  border:0px;
+  padding:10px;
 }
 td {
-	border:0px;
+  border:0px;
 }
