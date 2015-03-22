@@ -186,13 +186,16 @@ td {
 ]]
   local html=[[
 <html>
-  <head>
-    <title>OpenPrograms</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" type="image/ico" href="favicon.ico">
-  </head>
-  <body>
-    <center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center>
+	<head>
+		<title>OpenPrograms</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" type="image/ico" href="favicon.ico">
+		<script src="scripts/search.js"></script>
+	</head>
+	<body>
+		<center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center>
+		<div class="bvc" align="right"><input type="text" id="searchbox" placeholder="Search for something here" size="30" maxlength="60" onkeydown="trySearch(event);"/><input type="button" id="btnSearch" value="Search" onclick="search(event);" /></div>
 ]]
   print("\ngenerating page\n")
   for _,dat in pairs(repos) do
@@ -200,10 +203,10 @@ td {
     print("repo "..tostring(name))
     if dat[2]~="none" then
       dat[2]="https://github.com/"..dat[2]
-      html=html.."\t\t<div class=\"bvc\"><div class=\"bevel tl tr\"></div><div class=\"content\"><a href=\""..dat[2].."\"><div class=\"title\">"..name.."</div></a>"
+      html=html.."\t\t<div align=\"left\" name=\"content\" class=\"bvc\"><div class=\"bevel tl tr\"></div><div class=\"content\"><a href=\""..dat[2].."\"><div class=\"title\">"..name.."</div></a>"
     else
       dat[2]="https://github.com/"
-      html=html.."\t\t<div class=\"bvc\"><div class=\"bevel tl tr\"></div><div class=\"content\"><div class=\"title\">"..name.."</div>"
+      html=html.."\t\t<div align=\"left\" name=\"content\" class=\"bvc\"><div class=\"bevel tl tr\"></div><div class=\"content\"><div class=\"title\">"..name.."</div>"
     end
     html=html.."\n\t\t<table>\n"
     for ind=3,#dat do
