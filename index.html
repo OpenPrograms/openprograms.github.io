@@ -1,22 +1,25 @@
 <html>
-  <head>
-    <title>OpenPrograms</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" type="image/ico" href="favicon.ico">
-  </head>
-  <body>
-    <center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/Akuukis/RobotColorWars"><div class="title">Akuukis' programs</div></a>
+	<head>
+		<title>OpenPrograms</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" type="image/ico" href="favicon.ico">
+		<script src="scripts/search.js"></script>
+	</head>
+	<body>
+		<center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center>
+		<div class="bvc" align="right"><input type="text" id="searchbox" placeholder="Search for something here" size="30" maxlength="60" onkeydown="trySearch(event);"/><input type="button" id="btnSearch" value="Search" onclick="search(event);" /></div>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/Akuukis/RobotColorWars"><div class="title">Akuukis' programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/Akuukis/RobotColorWars/tree/master">nav</a></td><td>: Navigation BETA (<a href='http://youtu.be/9P5eJZLDWl0'>Video presentation</a>). Go to coordinates and library takes care of everything. Independent (doesn't need even OpenOS). Manual included.</td></tr>
 			<tr><td><a href="https://github.com/Akuukis/RobotColorWars/tree/master">thread</a></td><td>: Parallel Thread Library. Threads can spawn, manipulate, kill and do even more. Independent (doesn't need even OpenOS). Manual included.</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Altenius-Programs"><div class="title">Altenius' programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Altenius-Programs"><div class="title">Altenius' programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Altenius-Programs/blob/master/tdit.lua">tdit</a></td><td>: A tweaked version of the edit.lua program provided with OpenOS</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Altenius-Programs/blob/master/sl.lua">sl</a></td><td>: A steam locomotive goes across your screen as you mispell ls</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/ds84182-Programs"><div class="title">ds84182's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/ds84182-Programs"><div class="title">ds84182's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/ds84182-Programs/tree/master">netflash</a></td><td>: Program that allows flashing of OpenGX Glasses PROM wirelessly</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/ds84182-Programs/tree/master/musicfs">libmusicfs</a></td><td>: Library for MusicFS</td></tr>
@@ -25,17 +28,17 @@
 			<tr><td><a href="https://github.com/OpenPrograms/ds84182-Programs/tree/master/musicfs">musicfs</a></td><td>: MusicFS is a special file system-like format for tapes that allow multiple songs to be stored on a single tape.</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/ds84182-Programs/tree/master">libvec</a></td><td>: Library for vectors, ported from ComputerCraft</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><div class="title">DustBin's programs</div>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><div class="title">DustBin's programs</div>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/LibCompress/blob/master/LibCompress.lua">LibCompress</a></td><td>: Compression API</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/EvaKnievel-Programs"><div class="title">EvaKnievel's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/EvaKnievel-Programs"><div class="title">EvaKnievel's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/EvaKnievel-Programs/tree/master/logger/boot/04_logger.lua">logger</a></td><td>: Logs errors in OpenOS by copying all output sent to stderr to /var/log/stderr, lib will be added in later versions to allow programs to create more detail logs in later versions</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/EvaKnievel-Programs/tree/master/locationService">locationservice</a></td><td>: Keeps a track of the current location by overriding the robot move methods</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/EvaKnievel-Programs/tree/master/applicationconf">applicationconf</a></td><td>: Reads application.conf using an altered version of kilobyte's configparser, package contains the default application.conf which can be overridden</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/gamax92-Programs"><div class="title">gamax92's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/gamax92-Programs"><div class="title">gamax92's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/gamax92-Programs/tree/master/immibis-compress">immibis-compress</a></td><td>: Compressor and Decompressor for the ipack library</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/gamax92-Programs/blob/master/debug.lua">debug</a></td><td>: Give full stacktraces for programs</td></tr>
@@ -50,22 +53,22 @@
 			<tr><td><a href="https://github.com/OpenPrograms/gamax92-Programs/blob/master/OCNetFS/ocnetfs.lua">ocnetfs</a></td><td>: Connect a OCNetFS server as a local filesystem</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/gamax92-Programs/tree/master/vcomponent">vcomponent</a></td><td>: Virtual Components for OC</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Gopher-Programs"><div class="title">Gopher's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Gopher-Programs"><div class="title">Gopher's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Gopher-Programs/tree/master/gml">gml</a></td><td>: Gopher's GUI Libraries for OpenComputers</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Gopher-Programs/tree/master/gitrepo.lua">gitrepo</a></td><td>: Basic git repo downloader</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Gopher-Programs/tree/master/gml">gml-examples</a></td><td>: Example programs using GML</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/istasi-Programs"><div class="title">istasi's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/istasi-Programs"><div class="title">istasi's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/istasi-Programs/tree/master/ivator">ivator</a></td><td>: Control your elevator though a screen, rather than through the builtin elevator control.</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/istasi-Programs/tree/master/ilib">ilib</a></td><td>: Just stuff i use to make my life abit easier.</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/JoshTheEnder-Programs"><div class="title">JoshTheEnder's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/JoshTheEnder-Programs"><div class="title">JoshTheEnder's programs</div></a>
 		<table>
 			<tr><td><a style="color:#505050">dns-daemon</a></td><td>: Manages DNS style entries for UUID addresses</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Kenny-Programs"><div class="title">Kenny's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Kenny-Programs"><div class="title">Kenny's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Kenny-Programs/blob/master/CompViewer/CompViewer.lua">CompViewer</a></td><td>: GUI component viewer</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Kenny-Programs/blob/master/Ingame_Lua_Tutorial/LuaTutorial.lua">Lua Tutorial</a></td><td>: Ingame Lua tutorial</td></tr>
@@ -78,7 +81,7 @@
 			<tr><td><a href="https://github.com/OpenPrograms/Kenny-Programs/blob/master/OL_Control/OL_Control.lua">OpenLights Control</a></td><td>: Control program for OpenLights</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Kenny-Programs/blob/master/BR_Control/BR_Control.lua">Big Reactors Control</a></td><td>: Control program for Big Reactors</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Kilobyte-Programs"><div class="title">Kilobyte's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Kilobyte-Programs"><div class="title">Kilobyte's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Kilobyte-Programs/tree/master/configparse">configparser</a></td><td>: A simple configuarion file parser</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Kilobyte-Programs/tree/master/deepcopy">deepcopy</a></td><td>: A simple library to deepcopy tables and other things</td></tr>
@@ -88,12 +91,12 @@
 			<tr><td><a href="https://github.com/OpenPrograms/Kilobyte-Programs/tree/master/ubersandbox">ubersandbox</a></td><td>: A sandbox to run scripts in</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Kilobyte-Programs/tree/master/backtrace">backtrace</a></td><td>: A wrapper to get backtraces from a program</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/Kilobyte22/v"><div class="title">Kilobyte's programs (more)</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/Kilobyte22/v"><div class="title">Kilobyte's programs (more)</div></a>
 		<table>
 			<tr><td><a href="https://github.com/Kilobyte22/v/tree/master/v">v</a></td><td>: A text editor inspired by vim, but very basic</td></tr>
 			<tr><td><a href="https://github.com/Kilobyte22/v/tree/master/v-script">v-script</a></td><td>: A Lisp Like scripting language for OC</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Magik6k-Programs"><div class="title">Magik6k's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Magik6k-Programs"><div class="title">Magik6k's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Magik6k-Programs/tree/master/libcrc32">libcrc32</a></td><td>: Library for crc32 calculation</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Magik6k-Programs/tree/master/network">network</a></td><td>: Advanced networking for OpenComputers, implements routing, and tcp, udp like protocols</td></tr>
@@ -105,17 +108,17 @@
 			<tr><td><a href="https://github.com/OpenPrograms/Magik6k-Programs/tree/master/libdeflate">libdeflate</a></td><td>: Library implementing deflate algorithm in pure lua</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Magik6k-Programs/tree/master/nettools">nettools</a></td><td>: Networking tools for network package</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/MiscPrograms"><div class="title">Miscellaneous programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/MiscPrograms"><div class="title">Miscellaneous programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/MiscPrograms/blob/master/Vexatos/example.lua">example</a></td><td>: Hello world by Vexatos</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/MiscPrograms/blob/master/TankNut/interface.lua">interface-api</a></td><td>: Just another GUI api by TankNut</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/MiscPrograms/blob/master/TankNut/interface_demo.lua">interface-example</a></td><td>: An example script for the GUI api by TankNut</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/pedrosgali-Programs"><div class="title">pedrosgali's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/pedrosgali-Programs"><div class="title">pedrosgali's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/pedrosgali-Programs/tree/master/drawPlus">draw-plus</a></td><td>: An 'advanced' Paint utility.</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Pixel-Programs"><div class="title">PixelToast's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Pixel-Programs"><div class="title">PixelToast's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Pixel-Programs/blob/master/crypt.lua">crypt</a></td><td>: all in one crypto library</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Pixel-Programs/blob/master/bit64.lua">bit64</a></td><td>: bit library that supports 64 bit integers</td></tr>
@@ -135,7 +138,7 @@
 			<tr><td><a href="https://github.com/OpenPrograms/Pixel-Programs/blob/master/esolangs/malbolge.lua">malbolge</a></td><td>: Malbolge esolang</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Pixel-Programs/blob/master/esolangs/superstack.lua">superstack</a></td><td>: SuperStack! esolang</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Sangar-Programs"><div class="title">Sangar's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Sangar-Programs"><div class="title">Sangar's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Sangar-Programs/blob/master/midi.lua">midi</a></td><td>: Can be used to play real MIDI files using either Note Blocks or the built-in speakers.</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Sangar-Programs/blob/master/midi.lua">geo2holo</a></td><td>: Will plot the terrain surrounding the Geolyzer to the Hologram.</td></tr>
@@ -144,23 +147,23 @@
 			<tr><td><a style="color:#505050">lisp</a></td><td>: This program allows running a simple Lisp REPL and Lisp programs.</td></tr>
 			<tr><td><a style="color:#505050">gol</a></td><td>: Simple implementations of the well-known cellular automaton Game of Life.</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/SolraBizna/SolrOC"><div class="title">SolraBizna's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/SolraBizna/SolrOC"><div class="title">SolraBizna's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/SolraBizna/SolrOC/tree/master/redfs">redfs</a></td><td>: Provides a virtual filesystem that can control Redstone cards/blocks.</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/SuPeRMiNoR2-Programs"><div class="title">SuPeRMiNoR2's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/SuPeRMiNoR2-Programs"><div class="title">SuPeRMiNoR2's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/SuPeRMiNoR2-Programs/tree/master/networking">super-dns</a></td><td>: Basic DNS Client / Server</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/SuPeRMiNoR2-Programs/tree/master/games/ms1">sminesweeperone</a></td><td>: SuPeRMiNoR2 Minesweeper Type 1</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/SuPeRMiNoR2-Programs/tree/master/power-monitor">power-monitor</a></td><td>: Monitors IC2, ThermalExpansion, and EnderIO Energy Storage</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/SuPeRMiNoR2-Programs/tree/master/stargate-control">stargate</a></td><td>: Stargatetech stargate dialer</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Techokami-Programs"><div class="title">Techokami's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Techokami-Programs"><div class="title">Techokami's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Techokami-Programs/tree/master">print</a></td><td>: A program that works like cat, except it uses an OpenPrinters printer.</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Techokami-Programs/tree/master">telnet</a></td><td>: An actual telnet client. It doesn't support most of the spec, and there are bugs.</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Vexatos-Programs"><div class="title">Vexatos' programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Vexatos-Programs"><div class="title">Vexatos' programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Vexatos-Programs/tree/master/song">song</a></td><td>: An API to play whole songs using computer.beep</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Vexatos-Programs/tree/master/op-manager">oppm</a></td><td>: A program to browse, download, install and update various useful programs and libraries</td></tr>
@@ -168,13 +171,13 @@
 			<tr><td><a href="https://github.com/OpenPrograms/Vexatos-Programs/tree/master/reactor/bigreactors-control.lua">bigreactors-control</a></td><td>: A very simple BigReactors Reactor control program</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Vexatos-Programs/tree/master/drama/drama.lua">drama</a></td><td>: asie's Drama Generator inside OC</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Wobbo-Programs"><div class="title">Wobbo's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Wobbo-Programs"><div class="title">Wobbo's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Wobbo-Programs/tree/master/grep/">grep</a></td><td>: POSIX grep for searching trough text files</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Wobbo-Programs/tree/master/energyd/">energyd</a></td><td>: A library to monitor energy levels</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Wobbo-Programs/tree/master/getopt">getopt</a></td><td>: POSIX getopt for parsing command line options</td></tr>
 		</table></div><div class="bevel bl br"></div></div>
-		<div class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Wuerfel_21-OC-Toolkit"><div class="title">Wuerfel_21's programs</div></a>
+		<div align="left" name="content" class="bvc"><div class="bevel tl tr"></div><div class="content"><a href="https://github.com/OpenPrograms/Wuerfel_21-OC-Toolkit"><div class="title">Wuerfel_21's programs</div></a>
 		<table>
 			<tr><td><a href="https://github.com/OpenPrograms/Wuerfel_21-OC-Toolkit/tree/master/dispenser">dispenser</a></td><td>: A Network liberary that avoids cycles</td></tr>
 			<tr><td><a href="https://github.com/OpenPrograms/Wuerfel_21-OC-Toolkit/tree/master/natable">natable</a></td><td>: Very very dirty!</td></tr>
