@@ -13,7 +13,7 @@ function search(event) {
         initBackup();
     }
     var searchRepos = [];
-    var search = document.getElementById("searchbox").value.toLowerCase();;
+    var search = document.getElementById("searchbox").value.toLowerCase();
     var parent = document.getElementById("searchbox").parentNode;
     if(search.length < 2) {
         searchRepos = repoBackup;
