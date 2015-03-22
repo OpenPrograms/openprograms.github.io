@@ -13,14 +13,14 @@ function search(event) {
         initBackup();
     }
     var searchRepos = [];
-    var search = document.getElementById("searchbox").value;
+    var search = document.getElementById("searchbox").value.toLowerCase();;
     var parent = document.getElementById("searchbox").parentNode;
     if(search.length < 2) {
         searchRepos = repoBackup;
     } else {
         for(var i=0; i < repoBackup.length; i++) {
             var part = repoBackup[i];
-            if(part && part.textContent && part.textContent.indexOf(search) > 0) {
+            if(part && part.textContent && part.textContent.toLowerCase().indexOf(search) > 0) {
                 searchRepos.push(part);
             }
         }
