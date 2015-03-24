@@ -195,7 +195,7 @@ td {
 	</head>
 	<body>
 		<center><a href="https://github.com/OpenPrograms"><img src="logo.png"></a></center>
-		<div class="bvc" align="right"><input type="text" id="searchbox" placeholder="Search for something here" size="30" maxlength="60" onkeydown="trySearch(event);"/><input type="button" id="btnSearch" value="Search" onclick="search(event);" /></div>
+		<div class="bvc" align="right"><input type="text" id="searchbox" placeholder="Search for something here" size="30" maxlength="60" oninput="search(event);"/><input type="button" id="btnSearch" value="Search" onclick="search(event);" /></div>
 ]]
   print("\ngenerating page\n")
   for _,dat in pairs(repos) do
