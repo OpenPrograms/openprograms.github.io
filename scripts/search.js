@@ -35,8 +35,3 @@ function search(event) {
     }
 }
 
-function trySearch(event) {
-    if (event.keyCode == 13) {
-        search(event);
-    }
-}
