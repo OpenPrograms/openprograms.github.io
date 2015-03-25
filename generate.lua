@@ -109,10 +109,6 @@ local res,err=xpcall(function()
     ["immibis-compress"]="/tree/master/immibis-compress",
     ipack="/blob/master/immibis-compress/ipack.lua",
     dnsd="/blob/master/dns-server.lua",
-    midi="/blob/master/midi.lua",
-    geo2holo="/blob/master/midi.lua",
-    libnoise="/blob/master/noise.lua",
-    ["holo-demos"]="/",
   }
 
   local css=[[
