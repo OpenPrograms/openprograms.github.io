@@ -8,7 +8,7 @@ function initBackup() {
     }
 }
 
-function search(event) {
+function search() {
     if(!repoBackup) {
         initBackup();
     }
