@@ -31,6 +31,7 @@ h2 {
 .bevel, .content { border-color: #F0F0F0; border-style:solid; }
 
 .bvc {
+  max-width: 1024px;
   margin: auto;
   margin-top: 16px;
   position: relative; `   margin-bottom: 0px;
