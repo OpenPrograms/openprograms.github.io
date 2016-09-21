@@ -104,7 +104,7 @@ local res,err=xpcall(function()
       end
     end
   end
-  
+
   local url_override_because_vexatos={
     ["immibis-compress"]="/tree/master/immibis-compress",
     ipack="/blob/master/immibis-compress/ipack.lua",
@@ -135,7 +135,10 @@ local res,err=xpcall(function()
       html=html.."\t\t<div align=\"left\" name=\"content\" class=\"bvc\"><div class=\"bevel tl tr\"></div><div class=\"content\"><div class=\"title\">"..name.."</div>"
     end
     html=html.."\n\t\t<table>\n"
-    for ind=3,#dat do
+    table.remove(dat, 1)
+    table.remove(dat, 1)
+    table.sort(dat, function(a,b) return (type(a)=="table" and a[1] or a) < (type(b)=="table" and b[1] or b) end)
+    for ind=1,#dat do
       local pdat=dat[ind]
       if type(pdat)=="table" then
         print("\tprogram "..tostring(pdat[1]))
