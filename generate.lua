@@ -135,6 +135,7 @@ local res,err=xpcall(function()
       html=html.."\t\t<div align=\"left\" name=\"content\" class=\"bvc\"><div class=\"bevel tl tr\"></div><div class=\"content\"><div class=\"title\">"..name.."</div>"
     end
     html=html.."\n\t\t<table>\n"
+    local repourl = dat[2]
     table.remove(dat, 1)
     table.remove(dat, 1)
     table.sort(dat, function(a,b) return (type(a)=="table" and a[1] or a) < (type(b)=="table" and b[1] or b) end)
@@ -145,7 +146,7 @@ local res,err=xpcall(function()
         local url=pdat[2] or url_override_because_vexatos[pdat[1]]
         if url then
           if url:sub(1,1)=="/" then
-            url=dat[2]..url
+            url=repourl..url
           else
             url="https://github.com/"..url
           end
