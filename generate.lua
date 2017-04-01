@@ -91,6 +91,15 @@ local res,err=xpcall(function()
             end
           end
         end
+        local n, r = prog[1], prog[2]
+        table.sort(prog, function(a,b)
+          if a == n then return true
+          elseif b == n then return false
+          elseif a == r then return true
+          elseif b == r then return false
+          else return a[1]:lower()<b[1]:lower()
+          end
+        end)
       else
         print("WARNING: "..prog[2].." doesnt have a programs.cfg")
         local data=get("https://raw.githubusercontent.com/"..prog[2].."/master/programs.yaml")
