@@ -2,19 +2,19 @@
   a HTML/CSS generator, designed to make updating the site easier
 --]]
 os.execute("cd "..(... or ""))
-local err,https=pcall(require,"ssl.https")
+local err,https=pcall(require,"https")
 local arg=...
 if not err then
   print("you need to install luasec")
   print("install using luarocks")
-  print("or http://love2d.org/forums/viewtopic.php?f=5&t=76728")
+  print("or https://github.com/brunoos/luasec/wiki")
   print(https)
   os.exit()
 end
 
 local res,err=xpcall(function()
   local file=assert(io.open((arg or "").."repos.cfg","r"))
-  local repodat=setfenv(assert(loadstring("return "..file:read("*a"))),{})()
+  local repodat=load("return "..file:read("*a"), nil, nil, {})()
   file:close()
   local repos={}
   for name,data in pairs(repodat) do
@@ -68,12 +68,12 @@ local res,err=xpcall(function()
     if prog[2]~="none" then
       local data=get("https://raw.githubusercontent.com/"..prog[2].."/master/programs.cfg")
       if data then
-        data,err=loadstring("return "..data)
+        data,err=load("return "..data, nil, nil, {})
         if not data then
           print("Error in "..prog[2])
           error(err)
         end
-        data=setfenv(data,{})()
+        data=data()
         for name,dat in pairs(data) do
           if not dat.hidden then
             if dat.repo then
@@ -104,7 +104,7 @@ local res,err=xpcall(function()
       end
     end
   end
-  
+
   local url_override_because_vexatos={
     ["immibis-compress"]="/tree/master/immibis-compress",
     ipack="/blob/master/immibis-compress/ipack.lua",

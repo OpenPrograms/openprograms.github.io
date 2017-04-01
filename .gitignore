@@ -1,13 +1,16 @@
-_site/
-testing/
+/*
 
-#Because Wobbo uses vim and stuff
-*.swp
-*.swo
+# Directoies
+!/old
+!/scripts
 
-#Eclipse stuff, yay
-.*
-!.git*
-
-#Windows
-Thumbs.db
+# Files
+!/.gitignore
+!/README.md
+!/bg.png
+!/favicon.ico
+!/generate.lua
+!/index.html
+!/logo.png
+!/repos.cfg
+!/style.css
