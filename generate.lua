@@ -77,11 +77,19 @@ local res,err=xpcall(function()
         for name,dat in pairs(data) do
           if not dat.hidden then
             if dat.repo then
-              table.insert(prog,{
-                name,
-                prog[2].."/"..dat.repo,
-                dat.description,
-              })
+              if string.match(dat.repo, "^https?://.+") then
+                table.insert(prog,{
+                  name,
+                  dat.repo,
+                  dat.description,
+                })
+              else
+                table.insert(prog,{
+                  name,
+                  prog[2].."/"..dat.repo,
+                  dat.description,
+                })
+              end
             else
               table.insert(prog,{
                 name,
@@ -152,7 +160,7 @@ local res,err=xpcall(function()
         if url then
           if url:sub(1,1)=="/" then
             url=dat[2]..url
-          else
+          elseif not url:match("^https?://.+") then
             url="https://github.com/"..url
           end
           html=html.."\t\t\t<tr><td><a href=\""..url.."\">"..pdat[1].."</a></td><td>: "..pdat[3].."</td></tr>\n"
